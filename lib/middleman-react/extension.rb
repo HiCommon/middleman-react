@@ -4,6 +4,7 @@ require 'middleman-core'
 require 'middleman-react/jsx'
 require 'middleman-react/jsx/template'
 require 'middleman-react/cjsx/template'
+require 'middleman-react/helpers'
 
 module Middleman
   module React
@@ -11,6 +12,8 @@ module Middleman
     class Extension < Middleman::Extension
       option :harmony, false, 'The option of harmony'
       option :strip_types, false, 'The option of stripTypes'
+      option :components, ['components.js'], 'List of files for precompiling'
+      option :replay_console, true, 'Replay console for prerendered components'
 
       def initialize(app, options_hash = {}, &block)
         super
