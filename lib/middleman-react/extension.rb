@@ -23,6 +23,10 @@ module Middleman
         Middleman::React::JSX::Template.strip_types = options[:strip_types]
         Middleman::React::CJSX::Template.harmony = options[:harmony]
         Middleman::React::CJSX::Template.strip_types = options[:strip_types]
+        #
+        # app.config.react.jsx_transformer_class ||= Middleman::React::JSX::DEFAULT_TRANSFORMER
+        # Middleman::React::JSX.transformer_class = app.config.react.jsx_transformer_class
+        # Middleman::React::JSX.transform_options = app.config.react.jsx_transform_options
 
         Middleman::React::Renderer.components = options[:components]
         Middleman::React::Renderer.replay_console = options[:replay_console]

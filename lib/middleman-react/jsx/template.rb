@@ -11,22 +11,30 @@ module Middleman
 
         cattr_accessor :harmony
         cattr_accessor :strip_types
-
-        @harmony = false
-        @strip_types = false
+        #
+        # @harmony = false
+        # @strip_types = false
+        #
+        # def prepare
+        #   if self.class.harmony || options.key?(:harmony)
+        #     options[:harmony] = self.class.harmony
+        #   end
+        #   if self.class.strip_types || options.key?(:stripTypes)
+        #     options[:stripTypes] = self.class.strip_types
+        #   end
+        # end
+        #
+        # def evaluate(_scope, _locals, &_block)
+        #   @output ||= JSX.transform(data, options)
+        # end
 
         def prepare
-          if self.class.harmony || options.key?(:harmony)
-            options[:harmony] = self.class.harmony
-          end
-          if self.class.strip_types || options.key?(:stripTypes)
-            options[:stripTypes] = self.class.strip_types
-          end
         end
 
         def evaluate(_scope, _locals, &_block)
-          @output ||= JSX.transform(data, options)
+          @output ||= JSX::transform(data)
         end
+
       end
     end
   end
