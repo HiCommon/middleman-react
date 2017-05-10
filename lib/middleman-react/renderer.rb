@@ -92,6 +92,12 @@ module Middleman
           if (history && history.length > 0) {
             result += '\\n<scr'+'ipt>';
             history.forEach(function (msg) {
+              if (msg.level === 'error') {
+                throw new Error(msg.arguments);
+              }
+              if (#{ENV['BREAK_BUILD_ON_ERRORS'] ? 'true' : 'false'} && msg.level === 'warn') {
+                throw new Error(msg.arguments);
+              }
               result += '\\nconsole.' + msg.level + '.apply(console, ' + JSON.stringify(msg.arguments) + ');';
             });
             result += '\\n</scr'+'ipt>';
