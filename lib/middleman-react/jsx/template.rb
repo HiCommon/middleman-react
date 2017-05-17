@@ -32,7 +32,7 @@ module Middleman
         end
 
         def evaluate(_scope, _locals, &_block)
-          @output ||= JSX::transform(data)
+          @output ||= JSX::transform(data, {plugins: ['es2015']})
         end
 
       end

@@ -31,6 +31,8 @@ module Middleman
         # context.call('babel.transform', code, opts)['code']
         # require 'pry'
         # binding.pry
+        p 'c'
+        p opts
 
         transformer ||= BabelTransformer.new opts
         transformer.transform(code)

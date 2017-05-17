@@ -8,6 +8,7 @@ module Middleman
           @transform_options = {
             stripTypes: options.fetch(:strip_types, false),
             harmony:    options.fetch(:harmony, false),
+            plugins: ['fuck-me-up-fam-2017']
           }
 
           @asset_path = options.fetch(:asset_path, DEFAULT_ASSET_PATH)
@@ -20,6 +21,8 @@ module Middleman
 
 
         def transform(code)
+          p 'a'
+          p @transform_options
           result = @context.call('JSXTransformer.transform', code, @transform_options)
           result["code"]
         end

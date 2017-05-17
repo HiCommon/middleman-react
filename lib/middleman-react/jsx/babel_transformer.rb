@@ -15,6 +15,8 @@ module Middleman
         end
 
         def transform(code)
+          p 'b'
+          p @transform_options
           Babel::Transpiler.transform(code, @transform_options)['code']
         end
       end
